@@ -5,13 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/Switching-01/">
     <title>我的強積金</title>
-    <link rel="manifest" href="manifest.json">
-    <script type="module" crossorigin src="./assets/index-CpvJSoev.js"></script>
+    <style>
+      #error { display: none; background: #fee; color: #c00; padding: 20px; margin: 20px; border-radius: 10px; white-space: pre-wrap; font-family: monospace; }
+      #loading { text-align: center; padding: 40px; color: #666; }
+    </style>
     <link rel="stylesheet" crossorigin href="./assets/index-aw9UMIBi.css">
   </head>
   <body>
     <div id="root">
-      <p style="text-align:center;padding:20px;">載入中...</p>
+      <div id="loading">載入中...</div>
+      <div id="error"></div>
     </div>
+    
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        const errDiv = document.getElementById('error');
+        const loadDiv = document.getElementById('loading');
+        errDiv.style.display = 'block';
+        loadDiv.style.display = 'none';
+        errDiv.textContent = 'Error: ' + msg + '\nURL: ' + url + '\nLine: ' + line;
+        console.error('Global error:', msg, url, line, error);
+        return true;
+      };
+      
+      window.addEventListener('unhandledrejection', function(e) {
+        const errDiv = document.getElementById('error');
+        const loadDiv = document.getElementById('loading');
+        errDiv.style.display = 'block';
+        loadDiv.style.display = 'none';
+        errDiv.textContent = 'Promise Error: ' + (e.reason ? e.reason.message || e.reason : e);
+        console.error('Unhandled rejection:', e);
+      });
+    </script>
+    
+    <script type="module" crossorigin src="./assets/index-CpvJSoev.js"></script>
   </body>
 </html>
