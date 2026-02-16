@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的強積金 - 測試</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f5f5f5; }
+    .header { background: #E19C4B; color: white; padding: 20px; text-align: center; }
+    .content { padding: 20px; }
+    .card { background: white; border-radius: 10px; padding: 15px; margin: 10px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .card h3 { color: #E19C4B; margin-bottom: 10px; }
+    .debug { background: #333; color: #0f0; padding: 10px; margin: 10px; border-radius: 5px; font-family: monospace; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>我的強積金</h1>
+    <p>測試頁面 v1.0</p>
+  </div>
+  <div class="content">
+    <div class="debug" id="debug">正在載入 React...</div>
+    <div class="card">
+      <h3>測試</h3>
+      <p>如果你見到呢個頁面，表示基本 HTML 載入正常。</p>
+    </div>
+  </div>
+  
+  <script type="module">
+    const debug = document.getElementById('debug');
+    
+    try {
+      debug.innerHTML += '<br>1. Script 開始執行...';
+      
+      // 嘗試載入 React
+      const reactModule = await import('./assets/index-CpvJSoev.js');
+      debug.innerHTML += '<br>2. JS 模組載入成功!';
+      
+    } catch (error) {
+      debug.innerHTML += '<br>❌ 錯誤: ' + error.message;
+      console.error(error);
+    }
+  </script>
+</body>
+</html>
