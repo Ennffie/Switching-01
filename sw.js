@@ -1,15 +1,16 @@
 const CACHE_NAME = 'mpf-app-v1';
+const BASE_PATH = '/Switching-01';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/icons/icon-72x72.png',
-  '/icons/icon-96x96.png',
-  '/icons/icon-128x128.png',
-  '/icons/icon-144x144.png',
-  '/icons/icon-152x152.png',
-  '/icons/icon-192x192.png',
-  '/icons/icon-384x384.png',
-  '/icons/icon-512x512.png'
+  BASE_PATH + '/',
+  BASE_PATH + '/index.html',
+  BASE_PATH + '/icons/icon-72x72.png',
+  BASE_PATH + '/icons/icon-96x96.png',
+  BASE_PATH + '/icons/icon-128x128.png',
+  BASE_PATH + '/icons/icon-144x144.png',
+  BASE_PATH + '/icons/icon-152x152.png',
+  BASE_PATH + '/icons/icon-192x192.png',
+  BASE_PATH + '/icons/icon-384x384.png',
+  BASE_PATH + '/icons/icon-512x512.png'
 ];
 
 // 安裝 Service Worker
