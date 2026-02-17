@@ -38,6 +38,16 @@
       });
     </script>
     
+    <script>
+      // SPA Routing: Restore URL from 404.html redirect
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== window.location.href) {
+          window.history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <script type="module" crossorigin src="./assets/index-CpvJSoev.js"></script>
   </body>
 </html>
